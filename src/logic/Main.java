@@ -13,21 +13,10 @@ public class Main {
         RandomData.generateInfo();
 
         // Test the speed
-        FileManager.loadInfo("test_100000.obj");
+        //FileManager.loadInfo("test_100000.obj");
         DoubleList<Course> info = FileManager.getInfo();
         //System.out.println(info.print());
 
-
-        int[] nValues = {10, 50, 100, 500, 1000, 5000};
-        for (int size: nValues){
-
-
-
-            //System.out.println(TestQueue.getCourses());
-            //System.out.println(TestQueue.getOrganizedGroups());
-            //System.out.println(TestQueue.removeGroups());
-            //System.out.println(TestQueue.addCourse());
-        }
 
         // Get the saved info
 //        FileManager.loadInfo();
