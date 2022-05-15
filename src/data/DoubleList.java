@@ -1,6 +1,6 @@
 package data;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.List;
 
 public class DoubleList<E> implements Serializable {
@@ -15,6 +15,17 @@ public class DoubleList<E> implements Serializable {
         for (E item: list){
             this.addLast(item);
         }
+    }
+
+    public E get(int index){
+        if (index > this.size-1){
+            return null;
+        }
+        Node<E> ptr = this.head;
+        for (int i = 0; i < index; i++){
+            ptr = ptr.getNext();
+        }
+        return ptr.getData();
     }
 
     public Node<E> getHead() {
@@ -181,6 +192,22 @@ public class DoubleList<E> implements Serializable {
             info.append(ptr.getData()).append("\n");
         }
         return info.toString();
+    }
+
+    public DoubleList<E> copy() {
+        try {
+            ByteArrayOutputStream bo = new ByteArrayOutputStream();
+            ObjectOutputStream o = new ObjectOutputStream(bo);
+            o.writeObject(this);
+
+            ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
+            ObjectInputStream i = new ObjectInputStream(bi);
+
+            return (DoubleList<E>) i.readObject();
+        }
+        catch(Exception e) {
+            return null;
+        }
     }
 
     transient Node first;

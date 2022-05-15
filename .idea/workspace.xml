@@ -4,14 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2078f184-3400-4659-b39a-d6e395c392ad" name="Changes" comment="Update project" />
+    <list default="true" id="2078f184-3400-4659-b39a-d6e395c392ad" name="Changes" comment="Update project">
+      <change afterPath="$PROJECT_DIR$/data/test_100.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/TestArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/TestDoubleList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/TestSimpleList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/TestStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logic/Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test_10.obj" beforeDir="false" afterPath="$PROJECT_DIR$/data/test_10.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test_10000.obj" beforeDir="false" afterPath="$PROJECT_DIR$/data/test_10000.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test_100000.obj" beforeDir="false" afterPath="$PROJECT_DIR$/data/test_100000.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/CourseDoubleList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/CourseSimpleList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/CourseStack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DoubleList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DoubleList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/SimpleList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/SimpleList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Stack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/RandomData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/RandomData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/TestQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/TestQueue.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/logic/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/logic/RandomData.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/logic/TestQueue.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,6 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652544327640</updated>
       <workItem from="1652544328999" duration="5958000" />
+      <workItem from="1652578742443" duration="13637000" />
     </task>
     <task id="LOCAL-00001" summary="Update project">
       <created>1652546850365</created>
@@ -92,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652550394565</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update project">
+      <created>1652552277067</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652552277067</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,5 +154,60 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update project" />
     <option name="LAST_COMMIT_MESSAGE" value="Update project" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/logic/TestSimpleList.java</url>
+          <line>25</line>
+          <properties class="logic.TestSimpleList" method="accessCourse">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/data/SimpleList.java</url>
+          <line>30</line>
+          <properties class="data.SimpleList" method="get">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/logic/TestSimpleList.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/logic/TestSimpleList.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/logic/TestSimpleList.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/data/SimpleList.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/data/DoubleList.java</url>
+          <line>200</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/logic/TestSimpleList.java" line="9">
+        <watch expression="TestSimpleList.courses" language="JAVA" />
+      </inline-watch>
+    </watches-manager>
   </component>
 </project>

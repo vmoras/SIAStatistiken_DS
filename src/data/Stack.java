@@ -8,6 +8,10 @@ public class Stack<E> implements Serializable {
     public Stack(){
     }
 
+    public Stack(DoubleList<E> doubleList){
+        this.stack = doubleList;
+    }
+
     public void push(E item){
         stack.addFirst(item);
     }
@@ -30,5 +34,13 @@ public class Stack<E> implements Serializable {
 
     public void remove(E data){
         stack.remove(data);
+    }
+
+    public void get(int index){
+        stack.get(index);
+    }
+
+    public Stack<E> copy() {
+        return new Stack<>(stack.copy());
     }
 }

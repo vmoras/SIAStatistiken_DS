@@ -1,41 +1,63 @@
 package logic;
 
-import data.Course;
-import data.DoubleList;
-import data.Group;
-import data.Queue;
+import data.*;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Random;
-import java.util.UUID;
 
 public class RandomData {
     private static int size;
-    private static DoubleList<Course> courses = new DoubleList<>();
+    private static DoubleList<Course> coursesDoubleList = new DoubleList<>();
+    private static SimpleList<Course> coursesSimpleList = new SimpleList<>();
+    private static Queue<Course> coursesQueue = new Queue<>();
+    private static Stack<Course> coursesStack = new Stack<>();
+    private static Course [] coursesArray;
     private static int counter = 0;
 
     public static void setSize(int n){
         size = n;
+        coursesArray = new Course[n];
+    }
+
+    // TODO: DELETE THIS ONCE THE LOAD FROM FILE MANAGER METHOD IS READY
+    public static DoubleList<Course> getCoursesDoubleList(){
+        return coursesDoubleList;
+    }
+    public static SimpleList<Course> getCoursesSimpleList(){
+        return coursesSimpleList;
+    }
+    public static Queue<Course> getCoursesQueue(){
+        return coursesQueue;
+    }
+    public static Stack<Course> getCoursesStack(){
+        return coursesStack;
+    }
+    public static Course[] getCoursesArray(){
+        return coursesArray;
     }
 
     public static void generateInfo() throws IOException {
-        for (int i = 0; i < size/5; i++){
+        for (int i = 0; i < size; i++){
             Course newCourse = new Course(generateCode(), generateName());
             newCourse.setGroups(generateGroups());
-            courses.add(newCourse);
+
+            coursesDoubleList.add(newCourse);
+            coursesSimpleList.add(newCourse);
+            coursesQueue.enqueue(newCourse);
+            coursesStack.push(newCourse);
+            coursesArray[i] = newCourse;
         }
 
         // Save the generated info
-        String name = "test_" + String.valueOf(size) + ".obj";
-        FileManager.setInfo(courses);
-        courses.writeObject(FileManager.saveInfo(name));
+        String name = "test_" + size + ".obj";
+        FileManager.setInfo(coursesDoubleList);
+        coursesDoubleList.writeObject(FileManager.saveInfo(name));
     }
 
     private static String generateCode (){
         // Using the UUID random, generate a code for each course
-        return UUID.randomUUID().toString().substring(0, (int)Math.log10((double)size));
+        return String.valueOf(counter);
     }
 
     private static String generateName (){
@@ -47,8 +69,8 @@ public class RandomData {
 
     private static Queue<Group> generateGroups (){
         Random random = new Random();
-        int upperBound = 10;
-        int lowerBound = 5;
+        int upperBound = 1;
+        int lowerBound = 0;
         int number = random.nextInt(upperBound - lowerBound) + lowerBound;
 
         Queue<Group> groups = new Queue<>();
@@ -62,34 +84,10 @@ public class RandomData {
     }
 
     private static String generateTeachersName(){
-        String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
-        String alphaNumeric = upperAlphabet + lowerAlphabet;
-
-        StringBuilder sb = new StringBuilder();
-        Random random = new Random();
-        int length = 10;
-
-        for(int i = 0; i < length; i++) {
-            int index = random.nextInt(alphaNumeric.length());
-            char randomChar = alphaNumeric.charAt(index);
-            sb.append(randomChar);
-        }
-
-        return sb.toString();
+        return "Professor" + counter;
     }
 
     private static Calendar generateDay(){
-        Random random = new Random();
-        int minDay = (int) LocalDate.of(2000, 1, 1).toEpochDay();
-        int maxDay = (int) LocalDate.of(2015, 1, 1).toEpochDay();
-        long randomDay = minDay + random.nextInt(maxDay - minDay);
-
-        LocalDate day = LocalDate.ofEpochDay(randomDay);
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(day.getYear(), day.getMonthValue()-1, day.getDayOfMonth());
-
-        return calendar;
+        return Calendar.getInstance();
     }
 }

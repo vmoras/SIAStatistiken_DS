@@ -8,6 +8,10 @@ public class Queue<E> implements Serializable {
     public Queue(){
     }
 
+    public Queue(DoubleList<E> doubleList){
+        this.queue = doubleList;
+    }
+
     public void enqueue(E item){
         queue.addLast(item);
     }
@@ -32,19 +36,11 @@ public class Queue<E> implements Serializable {
         queue.remove(data);
     }
 
+    public void get(int index){
+        queue.get(index);
+    }
+
     public Queue<E> copy() {
-        try {
-            ByteArrayOutputStream bo = new ByteArrayOutputStream();
-            ObjectOutputStream o = new ObjectOutputStream(bo);
-            o.writeObject(this);
-
-            ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
-            ObjectInputStream i = new ObjectInputStream(bi);
-
-            return (Queue<E>) i.readObject();
-        }
-        catch(Exception e) {
-            return null;
-        }
+        return new Queue<>(queue.copy());
     }
 }

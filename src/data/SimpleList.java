@@ -1,6 +1,6 @@
 package data;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.List;
 
 public class SimpleList<E> implements Serializable {
@@ -144,8 +144,25 @@ public class SimpleList<E> implements Serializable {
         return info.toString();
     }
 
+    public SimpleList<E> copy() {
+        try {
+            ByteArrayOutputStream bo = new ByteArrayOutputStream();
+            ObjectOutputStream o = new ObjectOutputStream(bo);
+            o.writeObject(this);
+
+            ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
+            ObjectInputStream i = new ObjectInputStream(bi);
+
+            return (SimpleList<E>) i.readObject();
+        }
+        catch(Exception e) {
+            return null;
+        }
+    }
+
     transient Node first;
     @java.io.Serial
+    // FIXME
     private void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {
         // Write out any hidden serialization magic
         s.defaultWriteObject();
