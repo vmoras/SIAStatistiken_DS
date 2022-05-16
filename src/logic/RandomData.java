@@ -32,11 +32,16 @@ public class RandomData {
         return coursesStack;
     }
 
-    public static void generateInfo() throws IOException {
+    private static void resetValues(){
         coursesDoubleList = new DoubleList<>();
         coursesSimpleList = new SimpleList<>();
         coursesQueue = new Queue<>();
         coursesStack = new Stack<>();
+        counter = 0;
+    }
+
+    public static void generateInfo() throws IOException {
+        resetValues();
         for (int i = 0; i < size; i++){
             Course newCourse = new Course(generateCode(), generateName());
             newCourse.setGroups(generateGroups());
