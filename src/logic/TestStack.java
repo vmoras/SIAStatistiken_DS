@@ -14,7 +14,7 @@ public class TestStack {
         /* Returns the time needed to get a course by searching all the list
          * Test for search */
 
-        Stack<Course> copy = courses.copy();
+        Stack<Course> copy = new Stack<>(courses);
         String find = String.valueOf(courses.getSize() - 1);
 
         long start = System.nanoTime();
@@ -27,7 +27,7 @@ public class TestStack {
         /* Returns the time needed to access a course using their index
          * Test for access */
 
-        Stack<Course> copy = courses.copy();
+        Stack<Course> copy = new Stack<>(courses);
         int index = copy.getSize() - 1;
 
         long start = System.nanoTime();
@@ -40,7 +40,7 @@ public class TestStack {
         /* Returns the time needed to remove a course
          * Test for delete */
 
-        Stack<Course> deleted = courses.copy();
+        Stack<Course> deleted = new Stack<>(courses);
 
         long start = System.nanoTime();
         deleted.pop();
@@ -53,7 +53,7 @@ public class TestStack {
         in the front part of the structure or the back
          * Test for add*/
 
-        Stack<Course> copy = courses.copy();
+        Stack<Course> copy = new Stack<>(courses);
         Stack<Course> added = new Stack<>();
 
         Course course = copy.pop();

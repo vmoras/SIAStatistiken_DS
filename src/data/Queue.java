@@ -8,8 +8,8 @@ public class Queue<E> implements Serializable {
     public Queue(){
     }
 
-    public Queue(DoubleList<E> doubleList){
-        this.queue = doubleList;
+    public Queue(Queue<E> copy){
+        this.queue = new DoubleList<>(copy.queue);
     }
 
     public void enqueue(E item){
@@ -38,9 +38,5 @@ public class Queue<E> implements Serializable {
 
     public void get(int index){
         queue.get(index);
-    }
-
-    public Queue<E> copy() {
-        return new Queue<>(queue.copy());
     }
 }

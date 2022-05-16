@@ -8,8 +8,8 @@ public class Stack<E> implements Serializable {
     public Stack(){
     }
 
-    public Stack(DoubleList<E> doubleList){
-        this.stack = doubleList;
+    public Stack(Stack<E> copy){
+        stack = new DoubleList<>(copy.stack);
     }
 
     public void push(E item){
@@ -38,9 +38,5 @@ public class Stack<E> implements Serializable {
 
     public void get(int index){
         stack.get(index);
-    }
-
-    public Stack<E> copy() {
-        return new Stack<>(stack.copy());
     }
 }

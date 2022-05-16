@@ -17,6 +17,12 @@ public class DoubleList<E> implements Serializable {
         }
     }
 
+    public DoubleList(DoubleList<E> copy){
+        for (Node<E> ptr = copy.getHead(); ptr != null; ptr = ptr.getNext()){
+            this.add(ptr.getData());
+        }
+    }
+
     public E get(int index){
         if (index > this.size-1){
             return null;
@@ -65,7 +71,7 @@ public class DoubleList<E> implements Serializable {
 
         Node<E> headPtr = this.head;
         Node<E> tailPtr = this.tail;
-        Node<E> deleteNode = null;
+        Node<E> deleteNode;
 
         while (true){
             if (headPtr.getData().equals(data)){
@@ -194,22 +200,6 @@ public class DoubleList<E> implements Serializable {
         return info.toString();
     }
 
-    public DoubleList<E> copy() {
-        try {
-            ByteArrayOutputStream bo = new ByteArrayOutputStream();
-            ObjectOutputStream o = new ObjectOutputStream(bo);
-            o.writeObject(this);
-
-            ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
-            ObjectInputStream i = new ObjectInputStream(bi);
-
-            return (DoubleList<E>) i.readObject();
-        }
-        catch(Exception e) {
-            return null;
-        }
-    }
-
     transient Node first;
     @java.io.Serial
     public void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {
@@ -229,4 +219,17 @@ public class DoubleList<E> implements Serializable {
             s.writeObject(first.getData());
         }
     }
+
+    @java.io.Serial
+    private void readObject(java.io.ObjectInputStream s)
+            throws java.io.IOException, ClassNotFoundException {
+
+        int size = s.readInt();
+
+        for (int i = 0; i < size; i++) {
+            add((E)s.readObject());
+        }
+    }
+
+
 }

@@ -7,10 +7,10 @@ public class Main {
         long start = System.nanoTime();
 
         // Get the Big O for each data structure
-        Tests.startTest();
+        //Tests.startTest();
 
         // Get the saved info
-        /*FileManager.loadInfo();
+        FileManager.loadInfo();
         AutoSIA.setCourses(FileManager.getInfo());
 
         // Start threads
@@ -18,7 +18,7 @@ public class Main {
 
         // Update the files with the new data
         FileManager.setInfo(AutoSIA.getCourses());
-        FileManager.saveInfo();*/
+        FileManager.saveInfo();
 
         long result = (System.nanoTime() - start) / 1_000_000_000;
         System.out.println(result + " seg / " + result / 60.0 + " min");

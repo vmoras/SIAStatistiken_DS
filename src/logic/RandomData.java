@@ -12,12 +12,10 @@ public class RandomData {
     private static SimpleList<Course> coursesSimpleList = new SimpleList<>();
     private static Queue<Course> coursesQueue = new Queue<>();
     private static Stack<Course> coursesStack = new Stack<>();
-    private static Course [] coursesArray;
     private static int counter = 0;
 
     public static void setSize(int n){
         size = n;
-        coursesArray = new Course[n];
     }
 
     // TODO: DELETE THIS ONCE THE LOAD FROM FILE MANAGER METHOD IS READY
@@ -33,9 +31,6 @@ public class RandomData {
     public static Stack<Course> getCoursesStack(){
         return coursesStack;
     }
-    public static Course[] getCoursesArray(){
-        return coursesArray;
-    }
 
     public static void generateInfo() throws IOException {
         for (int i = 0; i < size; i++){
@@ -46,7 +41,6 @@ public class RandomData {
             coursesSimpleList.add(newCourse);
             coursesQueue.enqueue(newCourse);
             coursesStack.push(newCourse);
-            coursesArray[i] = newCourse;
         }
 
         // Save the generated info

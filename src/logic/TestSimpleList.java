@@ -14,7 +14,7 @@ public class TestSimpleList {
         /* Returns the time needed to get a course by searching all the list
          * Test for search */
 
-        SimpleList<Course> copy = courses.copy();
+        SimpleList<Course> copy = new SimpleList<>(courses);
         String find = String.valueOf(courses.getSize() - 1);
 
         long start = System.nanoTime();
@@ -27,7 +27,7 @@ public class TestSimpleList {
         /* Returns the time needed to access a course using their index
          * Test for access */
 
-        SimpleList<Course> copy = courses.copy();
+        SimpleList<Course> copy = new SimpleList<>(courses);
         int index = copy.getSize() - 1;
 
         long start = System.nanoTime();
@@ -41,7 +41,7 @@ public class TestSimpleList {
         in the front part of the structure or the back
          * Test for delete */
 
-        SimpleList<Course> deleted = courses.copy();
+        SimpleList<Course> deleted = new SimpleList<>(courses);
 
         long start = System.nanoTime();
         if (front){
@@ -58,7 +58,7 @@ public class TestSimpleList {
         in the front part of the structure or the back
          * Test for add*/
 
-        SimpleList<Course> copy = courses.copy();
+        SimpleList<Course> copy = new SimpleList<>(courses);
         SimpleList<Course> added = new SimpleList<>();
 
         Course course = copy.removeFirst();

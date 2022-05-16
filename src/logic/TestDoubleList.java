@@ -14,7 +14,7 @@ public class TestDoubleList {
         /* Returns the time needed to get a course by searching all the list
          * Test for search */
 
-        DoubleList<Course> copy = courses.copy();
+        DoubleList<Course> copy = new DoubleList<>(courses);
         String find = String.valueOf(courses.getSize() - 1);
 
         long start = System.nanoTime();
@@ -27,7 +27,7 @@ public class TestDoubleList {
         /* Returns the time needed to access a course using their index
          * Test for access */
 
-        DoubleList<Course> copy = courses.copy();
+        DoubleList<Course> copy = new DoubleList<>(courses);
         int index = copy.getSize() - 1;
 
         long start = System.nanoTime();
@@ -41,7 +41,7 @@ public class TestDoubleList {
         in the front part of the structure or the back
          * Test for delete */
 
-        DoubleList<Course> deleted = courses.copy();
+        DoubleList<Course> deleted = new DoubleList<>(courses);
 
         long start = System.nanoTime();
         if (front){
@@ -58,7 +58,7 @@ public class TestDoubleList {
         in the front part of the structure or the back
          * Test for add*/
 
-        DoubleList<Course> copy = courses.copy();
+        DoubleList<Course> copy = new DoubleList<>(courses);
         DoubleList<Course> added = new DoubleList<>();
 
         Course course = copy.removeFirst();

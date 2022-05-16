@@ -12,11 +12,12 @@ public class FileManager {
         loadInfo(null);
     }
 
-    public static void loadInfo(String name){
+    public static ObjectInputStream loadInfo(String name){
         try {
             if (name == null){
                 name = "courses.obj";
             }
+
             // Get the file
             FileInputStream fileStream = new FileInputStream("data/" +name);
 
@@ -24,15 +25,12 @@ public class FileManager {
             ObjectInputStream os = new ObjectInputStream(fileStream);
 
             // Get the info
-            courses = (DoubleList<Course>) os.readObject();
+            return os;
 
-            // Close both stream
-            fileStream.close();
-            os.close();
-
-        } catch (ClassNotFoundException | IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
+        return null;
     }
 
     public static void saveInfo() throws IOException {

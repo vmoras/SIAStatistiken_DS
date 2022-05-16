@@ -43,7 +43,7 @@ public class AutoSIA {
 
     private void setDriver(){
         // Set path to driver and set driver
-        System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "lib/geckodriver.exe");
         this.driver = new FirefoxDriver();
     }
 

@@ -14,7 +14,7 @@ public class TestQueue {
         /* Returns the time needed to get a course by searching all the list
          * Test for search */
 
-        Queue<Course> copy = courses.copy();
+        Queue<Course> copy = new Queue<>(courses);
         String find = String.valueOf(courses.getSize() - 1);
 
         long start = System.nanoTime();
@@ -27,7 +27,7 @@ public class TestQueue {
         /* Returns the time needed to access a course using their index
          * Test for access */
 
-        Queue<Course> copy = courses.copy();
+        Queue<Course> copy = new Queue<>(courses);
         int index = copy.getSize() - 1;
 
         long start = System.nanoTime();
@@ -40,7 +40,7 @@ public class TestQueue {
         /* Returns the time needed to remove a course
          * Test for delete */
 
-        Queue<Course> deleted = courses.copy();
+        Queue<Course> deleted = new Queue<>(courses);
 
         long start = System.nanoTime();
         deleted.dequeue();
@@ -52,7 +52,7 @@ public class TestQueue {
         /* Returns the time needed to remove a course
          * Test for add*/
 
-        Queue<Course> copy = courses.copy();
+        Queue<Course> copy = new Queue<>(courses);
         Queue<Course> added = new Queue<>();
 
         Course course = copy.dequeue();

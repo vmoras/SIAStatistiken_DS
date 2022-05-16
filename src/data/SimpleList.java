@@ -16,6 +16,12 @@ public class SimpleList<E> implements Serializable {
         }
     }
 
+    public SimpleList(SimpleList<E> copy){
+        for (Node<E> ptr = copy.getHead(); ptr != null; ptr = ptr.getNext()){
+            this.add(ptr.getData());
+        }
+    }
+
     public Node<E> getHead() {
         return this.head;
     }
@@ -144,34 +150,36 @@ public class SimpleList<E> implements Serializable {
         return info.toString();
     }
 
-    public SimpleList<E> copy() {
-        try {
-            ByteArrayOutputStream bo = new ByteArrayOutputStream();
-            ObjectOutputStream o = new ObjectOutputStream(bo);
-            o.writeObject(this);
-
-            ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
-            ObjectInputStream i = new ObjectInputStream(bi);
-
-            return (SimpleList<E>) i.readObject();
-        }
-        catch(Exception e) {
-            return null;
-        }
-    }
-
     transient Node first;
     @java.io.Serial
     // FIXME
     private void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {
         // Write out any hidden serialization magic
-        s.defaultWriteObject();
+        first = head;
 
         // Write out size
         s.writeInt(size);
 
         // Write out all elements in the proper order.
-        for (head  = first; first != null; first = first.getNext())
+        for (first = head; first.getData() != null; first = first.getNext()){
+            if(first.getPrev() == null){
+                s.close();
+                return;
+            }
+
             s.writeObject(first.getData());
+        }
+    }
+
+    @java.io.Serial
+    private void readObject(java.io.ObjectInputStream s)
+            throws java.io.IOException, ClassNotFoundException {
+        //LEE UN ARCHIVO Y GUARDA LOS OBJETOS EN LA "ESTRUCTURA"
+        // Read in size
+        int size = s.readInt();
+
+        // Read in all elements in the proper order.
+        for (int i = 0; i < size; i++)
+            add((E)s.readObject());
     }
 }

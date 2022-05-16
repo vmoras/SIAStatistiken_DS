@@ -53,7 +53,7 @@ public class Course implements java.io.Serializable{
     }
 
     public String print() {
-        Queue<Group> copy = this.getGroups().copy();
+        Queue<Group> copy = new Queue<>(this.groups);
         String info = this.courseName + ": " + this.courseCode + "\n";
         for (int i = 0 ; i < this.getGroups().getSize(); i++){
             info += copy.dequeue().print();
