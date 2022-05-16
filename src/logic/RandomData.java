@@ -33,6 +33,10 @@ public class RandomData {
     }
 
     public static void generateInfo() throws IOException {
+        coursesDoubleList = new DoubleList<>();
+        coursesSimpleList = new SimpleList<>();
+        coursesQueue = new Queue<>();
+        coursesStack = new Stack<>();
         for (int i = 0; i < size; i++){
             Course newCourse = new Course(generateCode(), generateName());
             newCourse.setGroups(generateGroups());
@@ -63,12 +67,10 @@ public class RandomData {
 
     private static Queue<Group> generateGroups (){
         Random random = new Random();
-        int upperBound = 1;
-        int lowerBound = 0;
-        int number = random.nextInt(upperBound - lowerBound) + lowerBound;
+        int number = random.nextInt(2);
 
         Queue<Group> groups = new Queue<>();
-        for (int i = 0; i < number; i++){
+        for (int i = 0; i <= number; i++){
             Group group = new Group(String.valueOf(i), generateTeachersName());
             group.setDate(generateDay());
             groups.enqueue(group);

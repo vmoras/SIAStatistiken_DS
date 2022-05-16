@@ -8,19 +8,20 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class Tests {
-    public static String[][] infoDoubleList = new String[6][6];
-    public static String[][] infoSimpleList = new String[6][6];
-    public static String[][] infoQueue = new String[4][6];
-    public static String[][] infoStack = new String[4][6];
+    private static final int lengths = 13;
+    public static String[][] infoDoubleList = new String[6][lengths];
+    public static String[][] infoSimpleList = new String[6][lengths];
+    public static String[][] infoQueue = new String[4][lengths];
+    public static String[][] infoStack = new String[4][lengths];
 
     public static void startTest() throws IOException {
         setArrays();
         int row = 1;
-
+        int[] sizes = {100, 250, 500, 750, 1000, 2500, 5000, 7500, 10000, 25000, 50000, 75000};
         System.out.println("Start test");
-        for (int i = 100; i < 101; i *= 10){
+        for (int size: sizes){
             // Set size of tests and get the random info
-            RandomData.setSize(i);
+            RandomData.setSize(size);
             RandomData.generateInfo();
 
             // Get each data structure
@@ -62,7 +63,7 @@ public class Tests {
             infoStack[3][row] = String.valueOf(TestStack.addCourse());
 
             row ++;
-            System.out.println("    Finished size " + i);
+            System.out.println("    Finished size " + size);
         }
 
         organizeData();
@@ -74,10 +75,10 @@ public class Tests {
         for (String[][] list: lists){
             list[0][0] = "Get";
             list[1][0] = "Access";
-            list[2][0] = "Remove back";
-            list[3][0] = "Remove front";
-            list[4][0] = "Add back";
-            list[5][0] = "Add front";
+            list[2][0] = "Remove front";
+            list[3][0] = "Remove back";
+            list[4][0] = "Add front";
+            list[5][0] = "Add back";
         }
 
         String[][][] otherLists = {infoQueue, infoStack};
@@ -94,7 +95,7 @@ public class Tests {
         String sL = "Simple list,,,,\n";
         String q = "Queue,,,,\n";
         String s = "Stack,,,,\n";
-        String size = ",100,1000,10000,1000000,10000000\n";
+        String size = ",100, 250, 500, 750, 1000, 2500, 5000, 7500, 10000, 25000, 50000, 75000\n";
 
         String[][][] info = {infoDoubleList, infoSimpleList, infoQueue, infoQueue};
         String[] names = {dL, sL, q, s};
@@ -105,7 +106,8 @@ public class Tests {
             data.append(names[i]);
             for (String[] row: info[i]){
                 String m = Arrays.toString(row);
-                data.append(m.substring(1, m.length()-1) + "\n");
+                data.append(m, 1, m.length()-1);
+                data.append("\n");
             }
             data.append(empty);
         }
