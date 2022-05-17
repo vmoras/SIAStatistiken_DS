@@ -15,7 +15,7 @@ public class TestDoubleList {
          * Test for search */
 
         DoubleList<Course> copy = new DoubleList<>(courses);
-        String find = String.valueOf(courses.getSize() - 1);
+        String find = String.valueOf(courses.getSize() / 2);
 
         long start = System.nanoTime();
         copy.containsValue(find);
@@ -59,16 +59,15 @@ public class TestDoubleList {
          * Test for add*/
 
         DoubleList<Course> copy = new DoubleList<>(courses);
-        DoubleList<Course> added = new DoubleList<>();
 
         Course course = copy.removeFirst();
         long start = System.nanoTime();
         if (front){
-            added.addFirst(course);
+            copy.addFirst(course);
         } else{
-            added.addLast(course);
+            copy.addLast(course);
         }
 
-        return (System.nanoTime() - start) / added.getSize();
+        return (System.nanoTime() - start);
     }
 }

@@ -15,7 +15,7 @@ public class TestStack {
          * Test for search */
 
         Stack<Course> copy = new Stack<>(courses);
-        String find = String.valueOf(courses.getSize() - 1);
+        String find = String.valueOf(courses.getSize() / 2);
 
         long start = System.nanoTime();
         copy.containsValue(find);
@@ -54,12 +54,11 @@ public class TestStack {
          * Test for add*/
 
         Stack<Course> copy = new Stack<>(courses);
-        Stack<Course> added = new Stack<>();
 
         Course course = copy.pop();
         long start = System.nanoTime();
-        added.push(course);
+        copy.push(course);
 
-        return (System.nanoTime() - start) / added.getSize();
+        return (System.nanoTime() - start);
     }
 }

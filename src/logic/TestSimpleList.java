@@ -59,16 +59,15 @@ public class TestSimpleList {
          * Test for add*/
 
         SimpleList<Course> copy = new SimpleList<>(courses);
-        SimpleList<Course> added = new SimpleList<>();
 
         Course course = copy.removeFirst();
         long start = System.nanoTime();
         if (front){
-            added.addFirst(course);
+            copy.addFirst(course);
         } else{
-            added.addLast(course);
+            copy.addLast(course);
         }
 
-        return (System.nanoTime() - start) / added.getSize();
+        return (System.nanoTime() - start) ;
     }
 }

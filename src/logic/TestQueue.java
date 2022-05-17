@@ -15,7 +15,7 @@ public class TestQueue {
          * Test for search */
 
         Queue<Course> copy = new Queue<>(courses);
-        String find = String.valueOf(courses.getSize() - 1);
+        String find = String.valueOf(courses.getSize() / 2);
 
         long start = System.nanoTime();
         copy.containsValue(find);
@@ -53,12 +53,11 @@ public class TestQueue {
          * Test for add*/
 
         Queue<Course> copy = new Queue<>(courses);
-        Queue<Course> added = new Queue<>();
 
         Course course = copy.dequeue();
         long start = System.nanoTime();
-        added.enqueue(course);
+        copy.enqueue(course);
 
-        return (System.nanoTime() - start) / added.getSize();
+        return (System.nanoTime() - start);
     }
 }
