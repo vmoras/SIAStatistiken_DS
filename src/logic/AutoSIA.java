@@ -47,9 +47,15 @@ public class AutoSIA {
         this.driver = new FirefoxDriver();
     }
 
+//        private void setDriver(){
+//        // Set path to driver and set driver
+//        System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
+//        this.driver = new ChromeDriver();
+//    }
+
     private void setWait(){
         // Set wait object
-        long seconds = 20;
+        long seconds = 30;
         this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(seconds));
     }
 
@@ -251,4 +257,16 @@ public class AutoSIA {
     public static DoubleList<Course> getCourses(){
         return courses;
     }
+
+    /*imprimir nombre de los cursos*/
+    public static void imprimirCursos(){
+
+        Node aux = courses.getHead();
+        for(int i=0; i < courses.getSize(); i++){
+            Course  curso = (Course) aux.getData();
+            System.out.println(curso.getCourseName());
+            aux = aux.getNext();
+        }
+    }
 }
+

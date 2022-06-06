@@ -200,6 +200,8 @@ public class DoubleList<E> implements Serializable {
         return info.toString();
     }
 
+
+
     transient Node first;
     @java.io.Serial
     public void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {

@@ -1,16 +1,19 @@
 package logic;
 
+import gui.PrincipalWindow;
+
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        long start = System.nanoTime();
+
+        //long start = System.nanoTime();
 
         // Get the Big O for each data structure
-        Tests.startTest();
+        //Tests.startTest();
 
         // Get the saved info
-        /*FileManager.loadInfo();
+        FileManager.loadInfo();
         AutoSIA.setCourses(FileManager.getInfo());
 
         // Start threads
@@ -18,9 +21,14 @@ public class Main {
 
         // Update the files with the new data
         FileManager.setInfo(AutoSIA.getCourses());
-        FileManager.saveInfo();*/
+        FileManager.saveInfo();
 
-        long result = (System.nanoTime() - start) / 1_000_000_000;
-        System.out.println(result + " seg / " + result / 60.0 + " min");
+
+        //long result = (System.nanoTime() - start) / 1_000_000_000;
+        //System.out.println(result + " seg / " + result / 60.0 + " min");
+
+        PrincipalWindow p = new PrincipalWindow(AutoSIA.getCourses());
+        p.setVisible(true);
+
     }
 }
