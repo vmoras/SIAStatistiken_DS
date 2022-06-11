@@ -76,7 +76,6 @@ public class PrincipalWindow extends JFrame {
         contentPane.add(lblNewLabel_7_3);
 
         /*crear evento al seleccionar el modulo*/
-
         JLabel lblNewLabel_7_2 = new JLabel("Industrial");
         lblNewLabel_7_2.setForeground(Color.WHITE);
         lblNewLabel_7_2.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
@@ -189,7 +188,7 @@ public class PrincipalWindow extends JFrame {
         sistemas.setBorderPainted(false);
         sistemas.setBounds(144, 129, 216, 122);
         contentPane.add(sistemas);
-        /*crear evento al seleccionar el modulo arte*/
+        /*crear evento al seleccionar el modulo sistemas*/
         sistemas.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Modulo_IngSistemas s = new Modulo_IngSistemas(courses);

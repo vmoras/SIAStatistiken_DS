@@ -63,7 +63,7 @@ public class Modulo_IngSistemas extends JFrame {
         lblNewLabel_7_5_1.setBackground(new Color(0, 0, 0));
         lblNewLabel_7_5_1.setBounds(179, 451, 325, 44);
         contentPane.add(lblNewLabel_7_5_1);
-        /*crear evento al seleccionar el modulo*/
+
 
         JLabel cursos = new JLabel("");
         cursos.setBackground(new Color(255, 140, 0));

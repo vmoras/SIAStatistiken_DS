@@ -1,9 +1,7 @@
 package gui;
 
-import data.Course;
-import data.DoubleList;
-import data.Node;
 import data.Queue;
+import data.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -59,9 +57,11 @@ public class CursosIngSistemas extends JFrame {
         JPanel panel_1 = new JPanel();
         contentPane.add(panel_1, BorderLayout.SOUTH);
 
-        JButton btnNewButton_volver = new JButton("salir");
+        JButton btnNewButton_volver = new JButton("volver");
         btnNewButton_volver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                Modulo_IngSistemas m = new Modulo_IngSistemas(courses);
+                m.setVisible(true);
                 close();
             }
         });
@@ -77,14 +77,28 @@ public class CursosIngSistemas extends JFrame {
     public String[] seleccionDeGrupos(DoubleList<Course> courses, int index){
 
         String[] grupos = new String[30];
+        Group grupo;
+        String grupoInfo  = "";
         Node aux = courses.getHead();
         for(int i=0; i < index; i++){
             aux = aux.getNext();
         }
+        // este es el curso seleccionado de la lista
         Course  curso = (Course) aux.getData();
+        // obtenemos su lista de grupos
         Queue listaDeGrupos = curso.getGroups();
+
+        //recorremos la lista de  grupos para obtener la info de cada grupo
         for(int i=0; i < listaDeGrupos.getSize(); i++){
-            grupos[i] = (String) listaDeGrupos.dequeue();
+
+            if(!listaDeGrupos.isEmpty()){
+                grupo = (Group) listaDeGrupos.dequeue();
+                grupoInfo = grupoInfo + (String) grupo.getNumber() + " " +
+                            (String) grupo.getTeacher() + " " + grupo.getDate().getTime();
+                grupos[i] = grupoInfo;
+                grupoInfo = " ";
+            }
+
         }
         return grupos;
     }

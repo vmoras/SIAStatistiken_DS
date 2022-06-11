@@ -45,10 +45,13 @@ public class GruposIngSistemas extends JFrame {
         JPanel panel_1 = new JPanel();
         contentPane.add(panel_1, BorderLayout.SOUTH);
 
-        JButton btnNewButton_volver = new JButton("salir");
+        JButton btnNewButton_volver = new JButton("volver");
         btnNewButton_volver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                Modulo_IngSistemas m = new Modulo_IngSistemas(courses);
+                String[] nombreCursos = m.seleccionDeCursos(courses);
+                CursosIngSistemas c = new CursosIngSistemas(courses, nombreCursos);
+                c.setVisible(true);
                 close();
             }
         });
