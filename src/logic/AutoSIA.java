@@ -196,7 +196,7 @@ public class AutoSIA {
         //checkQueue(course.getGroups());
 
         // FIXME: REMOVE IT
-        System.out.println(course.print());
+       // System.out.println(course.print());
 
         // Return to main page with the rest of Courses
         returnMainPage();

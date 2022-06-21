@@ -11,12 +11,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Modulo_IngSistemas extends JFrame {
+public class Modulo extends JFrame {
 
     private JPanel contentPane;
 
 
-    public Modulo_IngSistemas(DoubleList<Course> courses) {
+    public Modulo(String nombreModulo, String descripcionModulo, DoubleList<Course> courses) {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1149, 606);
@@ -44,7 +44,7 @@ public class Modulo_IngSistemas extends JFrame {
         btnNewButton_Cursos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                CursosIngSistemas c = new CursosIngSistemas(courses, seleccionDeCursos(courses));
+                ListaDeCursos c = new ListaDeCursos(nombreModulo, descripcionModulo, courses, seleccionDeCursos(courses));
                 c.setVisible(true);
                 close();
             }
@@ -53,13 +53,15 @@ public class Modulo_IngSistemas extends JFrame {
         JTextArea descripcion = new JTextArea();
         descripcion.setFont(new Font("Segoe UI Light", Font.BOLD, 18));
         descripcion.setBackground(new Color(34, 139, 34));
-        descripcion.setText("El programa Ingenier\u00EDa de Sistemas de la Universidad Nacional de Colombia cuenta con un plan de estudios\r\n\r\nen cr\u00E9ditos, actual, flexible, que promueve la formaci\u00F3n integral y la autonom\u00EDa, el claro sentido de pertenencia \r\n\r\ny excelentes resultados en diferentes \u00E1mbitos, de estudiantes y egresados, adem\u00E1s de la dedicaci\u00F3n en las \r\n\r\nlabores de docencia, investigaci\u00F3n y extensi\u00F3n de los profesores del programa, constituyen evidencias \r\n\r\nde la calidad del programa de Ingenier\u00EDa de sistemas y la solidez institucional de la Universidad Nacional de Colombia.");
+        /*se agrega la descripcion del modulo*/
+        descripcion.setText(descripcionModulo);
+
         descripcion.setBounds(81, 98, 976, 282);
         contentPane.add(descripcion);
 
         JLabel lblNewLabel_7_5_1 = new JLabel("Informaci\u00F3n de cursos");
         lblNewLabel_7_5_1.setForeground(new Color(0, 0, 0));
-        lblNewLabel_7_5_1.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_5_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_5_1.setBackground(new Color(0, 0, 0));
         lblNewLabel_7_5_1.setBounds(179, 451, 325, 44);
         contentPane.add(lblNewLabel_7_5_1);
@@ -67,7 +69,7 @@ public class Modulo_IngSistemas extends JFrame {
 
         JLabel cursos = new JLabel("");
         cursos.setBackground(new Color(255, 140, 0));
-        cursos.setIcon(new ImageIcon(Modulo_IngSistemas.class.getResource("/images/fonfo.jpg")));
+        cursos.setIcon(new ImageIcon(Modulo.class.getResource("/images/fonfo.jpg")));
         cursos.setBounds(0, 74, 1201, 493);
         contentPane.add(cursos);
 
@@ -88,7 +90,8 @@ public class Modulo_IngSistemas extends JFrame {
         panel.add(logoYnombre);
         logoYnombre.setLayout(new GridLayout(1, 3, 0, 0));
 
-        JLabel lblNewLabel = new JLabel("Ingenier\u00EDa de sistemas y computaci\u00F3n");
+        /*se agrega el nombre del modulo*/
+        JLabel lblNewLabel = new JLabel(nombreModulo);
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.BOLD, 25));
         logoYnombre.add(lblNewLabel);
@@ -134,9 +137,12 @@ public class Modulo_IngSistemas extends JFrame {
         this.dispose();
     }
 
+    /*hacer que solo se seleccionen los cursos de la carrera seleccionada
+    * haciendo que la funcion reciba como parametro el nombre de la carrera*/
     public String[] seleccionDeCursos(DoubleList<Course> courses){
-
-        String[] nombreCursos = new String[100];
+        /*arreglo para guardar los nombres de los cursos
+        * 300 porque se estan capturando alrededor de +/-250 en el proceso de web scraping */
+        String[] nombreCursos = new String[300];
         Node aux = courses.getHead();
         for(int i=0; i < courses.getSize(); i++){
             Course  curso = (Course) aux.getData();

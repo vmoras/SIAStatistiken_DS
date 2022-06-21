@@ -28,35 +28,35 @@ public class PrincipalWindow extends JFrame {
 
         JLabel lblNewLabel_7_5_1_1 = new JLabel("Civil");
         lblNewLabel_7_5_1_1.setForeground(Color.WHITE);
-        lblNewLabel_7_5_1_1.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_5_1_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_5_1_1.setBackground(Color.WHITE);
         lblNewLabel_7_5_1_1.setBounds(893, 503, 91, 44);
         contentPane.add(lblNewLabel_7_5_1_1);
 
         JLabel lblNewLabel_7_5_1 = new JLabel("Mec\u00E1nica");
         lblNewLabel_7_5_1.setForeground(Color.WHITE);
-        lblNewLabel_7_5_1.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_5_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_5_1.setBackground(Color.WHITE);
         lblNewLabel_7_5_1.setBounds(540, 503, 144, 44);
         contentPane.add(lblNewLabel_7_5_1);
 
         JLabel lblNewLabel_7_5 = new JLabel("Mecatr\u00F3nica");
         lblNewLabel_7_5.setForeground(Color.WHITE);
-        lblNewLabel_7_5.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_5.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_5.setBackground(Color.WHITE);
         lblNewLabel_7_5.setBounds(172, 503, 188, 44);
         contentPane.add(lblNewLabel_7_5);
 
         JLabel lblNewLabel_7_4 = new JLabel("Qu\u00EDmica");
         lblNewLabel_7_4.setForeground(Color.WHITE);
-        lblNewLabel_7_4.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_4.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_4.setBackground(Color.WHITE);
         lblNewLabel_7_4.setBounds(526, 85, 175, 44);
         contentPane.add(lblNewLabel_7_4);
 
         JLabel lblNewLabel_7_3_1 = new JLabel("Agr\u00EDcola");
         lblNewLabel_7_3_1.setForeground(Color.WHITE);
-        lblNewLabel_7_3_1.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_3_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_3_1.setBackground(Color.WHITE);
         lblNewLabel_7_3_1.setBounds(550, 289, 134, 44);
         contentPane.add(lblNewLabel_7_3_1);
@@ -64,13 +64,13 @@ public class PrincipalWindow extends JFrame {
         JLabel lblNewLabel_7 = new JLabel("Sistemas y computaci\u00F3n");
         lblNewLabel_7.setForeground(new Color(255, 255, 255));
         lblNewLabel_7.setBackground(new Color(255, 255, 255));
-        lblNewLabel_7.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7.setBounds(80, 85, 332, 44);
         contentPane.add(lblNewLabel_7);
 
         JLabel lblNewLabel_7_3 = new JLabel("El\u00E9ctrica");
         lblNewLabel_7_3.setForeground(Color.WHITE);
-        lblNewLabel_7_3.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_3.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_3.setBackground(Color.WHITE);
         lblNewLabel_7_3.setBounds(172, 289, 134, 44);
         contentPane.add(lblNewLabel_7_3);
@@ -78,7 +78,7 @@ public class PrincipalWindow extends JFrame {
         /*crear evento al seleccionar el modulo*/
         JLabel lblNewLabel_7_2 = new JLabel("Industrial");
         lblNewLabel_7_2.setForeground(Color.WHITE);
-        lblNewLabel_7_2.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_2.setBackground(Color.WHITE);
         lblNewLabel_7_2.setBounds(876, 85, 155, 44);
         contentPane.add(lblNewLabel_7_2);
@@ -86,12 +86,12 @@ public class PrincipalWindow extends JFrame {
 
         JLabel lblNewLabel_7_1 = new JLabel("Electr\u00F3nica");
         lblNewLabel_7_1.setForeground(Color.WHITE);
-        lblNewLabel_7_1.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+        lblNewLabel_7_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
         lblNewLabel_7_1.setBackground(Color.WHITE);
         lblNewLabel_7_1.setBounds(863, 289, 168, 44);
         contentPane.add(lblNewLabel_7_1);
-        /*crear evento al seleccionar el modulo*/
 
+        /*crear evento al seleccionar el modulo mecanica*/
         JButton mecanica = new JButton("");
         mecanica.setIcon(new ImageIcon(PrincipalWindow.class.getResource("/images/1GEO2.png")));
         mecanica.setRolloverSelectedIcon(new ImageIcon(PrincipalWindow.class.getResource("/images/1GEO2.png")));
@@ -103,7 +103,13 @@ public class PrincipalWindow extends JFrame {
         contentPane.add(mecanica);
         mecanica.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                String descripcionModuloMecanica = "El programa Ingenieria Mecanica " +
+                        "de la Universidad Nacional de Colombia cuenta...";
+                Modulo s = new Modulo(
+                        "Ingenieria de Mecanica",
+                        descripcionModuloMecanica, courses);
+                s.setVisible(true);
+                close();
 
             }
         });
@@ -120,7 +126,13 @@ public class PrincipalWindow extends JFrame {
         agricola.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-
+                String descripcionModuloAgricola = "El programa Ingenieria Agricola " +
+                        "de la Universidad Nacional de Colombia cuenta...";
+                Modulo s = new Modulo(
+                        "Ingenieria de Agricola",
+                        descripcionModuloAgricola, courses);
+                s.setVisible(true);
+                close();
             }
         });
 
@@ -137,7 +149,13 @@ public class PrincipalWindow extends JFrame {
         quimica.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-
+                String descripcionModuloQuimica = "El programa Ingenieria Quimica " +
+                        "de la Universidad Nacional de Colombia cuenta...";
+                Modulo s = new Modulo(
+                        "Ingenieria de Quimica",
+                        descripcionModuloQuimica, courses);
+                s.setVisible(true);
+                close();
             }
         });
 
@@ -154,7 +172,13 @@ public class PrincipalWindow extends JFrame {
         contentPane.add(mecatronica);
         mecatronica.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                String descripcionModuloMecatronica = "El programa Ingenieria Mecatronica " +
+                        "de la Universidad Nacional de Colombia cuenta...";
+                Modulo s = new Modulo(
+                        "Ingenieria de Mecatronica",
+                        descripcionModuloMecatronica, courses);
+                s.setVisible(true);
+                close();
 
             }
         });
@@ -172,7 +196,13 @@ public class PrincipalWindow extends JFrame {
         contentPane.add(civil);
         civil.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                String descripcionModuloCivil = "El programa Ingenieria Civil " +
+                        "de la Universidad Nacional de Colombia cuenta...";
+                Modulo s = new Modulo(
+                        "Ingenieria de Civil",
+                        descripcionModuloCivil, courses);
+                s.setVisible(true);
+                close();
 
             }
         });
@@ -191,7 +221,20 @@ public class PrincipalWindow extends JFrame {
         /*crear evento al seleccionar el modulo sistemas*/
         sistemas.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Modulo_IngSistemas s = new Modulo_IngSistemas(courses);
+                String descripcionModuloSistemas = "El programa Ingenieria de Sistemas " +
+                        "de la Universidad Nacional de Colombia cuenta" +
+                        "con un plan de estudios en creditos, actual," +
+                        "flexible, que promueve la formacion integral" +
+                        "y la autonomoa, el claro sentido de pertenencia " +
+                        "excelentes resultados en diferentes ambitos, de estudiantes y egresados," +
+                        "ademas de la dedicacion en las labores de docencia," +
+                        "investigacion y extension de los profesores del programa," +
+                        "constituyen evidencias de la calidad del programa de Ingenieria" +
+                        "de sistemas y la solidez institucional de la Universidad Nacional de Colombia.";
+
+                Modulo s = new Modulo(
+                        "Ingenieria de Sistemas y Computacion",
+                        descripcionModuloSistemas, courses);
                 s.setVisible(true);
                 close();
             }
@@ -211,6 +254,14 @@ public class PrincipalWindow extends JFrame {
         contentPane.add(industrial);
         industrial.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                String descripcionModuloIndustrial = "El programa Ingenieria de Industrial " +
+                        "de la Universidad Nacional de Colombia cuenta ... ";
+
+                Modulo s = new Modulo(
+                        "Ingenieria de Industrial",
+                        descripcionModuloIndustrial, courses);
+                s.setVisible(true);
+                close();
 
             }
         });
@@ -228,7 +279,13 @@ public class PrincipalWindow extends JFrame {
         electrica.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-
+                String descripcionModuloElectrica = "El programa Ingenieria Electrica " +
+                        "de la Universidad Nacional de Colombia cuenta...";
+                Modulo s = new Modulo(
+                        "Ingenieria de Electrica",
+                        descripcionModuloElectrica, courses);
+                s.setVisible(true);
+                close();
             }
         });
 
@@ -244,7 +301,13 @@ public class PrincipalWindow extends JFrame {
         contentPane.add(electronica);
         electronica.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                String descripcionModuloElectronica = "El programa Ingenieria Electronica " +
+                        "de la Universidad Nacional de Colombia cuenta...";
+                Modulo s = new Modulo(
+                        "Ingenieria de Electronica",
+                        descripcionModuloElectronica, courses);
+                s.setVisible(true);
+                close();
             }
         });
 

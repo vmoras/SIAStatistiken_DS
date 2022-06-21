@@ -12,7 +12,7 @@ public class Main {
 //        // Get the Big O for each data structure
 //        //Tests.startTest();
 //
-        // Get the saved info
+         //Get the saved info
         FileManager.loadInfo();
         AutoSIA.setCourses(FileManager.getInfo());
 

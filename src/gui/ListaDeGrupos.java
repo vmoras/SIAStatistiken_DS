@@ -9,13 +9,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GruposIngSistemas extends JFrame {
+public class ListaDeGrupos extends JFrame {
 
     private JPanel contentPane;
     private String[] nombreCursos;
 
 
-    public GruposIngSistemas(DoubleList<Course> courses, String[] grupos) {
+    public ListaDeGrupos(DoubleList<Course> courses, String nombreCurso, String[] grupos,
+                         String nombreModulo, String descripcionModulo) {
         this.nombreCursos = nombreCursos;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 701, 488);
@@ -29,7 +30,7 @@ public class GruposIngSistemas extends JFrame {
         panel.setBackground(new Color(34, 139, 34));
         contentPane.add(panel, BorderLayout.NORTH);
 
-        JLabel lblNewLabel = new JLabel("Grupos de la materia");
+        JLabel lblNewLabel = new JLabel("Grupos de la materia " + nombreCurso);
         lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));
         panel.add(lblNewLabel);
 
@@ -48,9 +49,11 @@ public class GruposIngSistemas extends JFrame {
         JButton btnNewButton_volver = new JButton("volver");
         btnNewButton_volver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Modulo_IngSistemas m = new Modulo_IngSistemas(courses);
+                Modulo m = new Modulo(nombreModulo, descripcionModulo,
+                        courses);
                 String[] nombreCursos = m.seleccionDeCursos(courses);
-                CursosIngSistemas c = new CursosIngSistemas(courses, nombreCursos);
+                ListaDeCursos c = new ListaDeCursos(nombreModulo, descripcionModulo,
+                        courses, nombreCursos);
                 c.setVisible(true);
                 close();
             }

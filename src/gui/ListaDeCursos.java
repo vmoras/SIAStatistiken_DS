@@ -11,13 +11,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CursosIngSistemas extends JFrame {
+public class ListaDeCursos extends JFrame {
 
     private JPanel contentPane;
     private String[] nombreCursos;
 
 
-    public CursosIngSistemas(DoubleList<Course> courses, String[] nombreCursos) {
+    public ListaDeCursos(String nombreModulo, String descripcionModulo,
+                         DoubleList<Course> courses, String[] nombreCursos) {
         this.nombreCursos = nombreCursos;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 701, 488);
@@ -31,7 +32,7 @@ public class CursosIngSistemas extends JFrame {
         panel.setBackground(new Color(34, 139, 34));
         contentPane.add(panel, BorderLayout.NORTH);
 
-        JLabel lblNewLabel = new JLabel("Cursos Ingenieria de Sistemas y Computacion");
+        JLabel lblNewLabel = new JLabel("Cursos " + nombreModulo);
         lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));
         panel.add(lblNewLabel);
 
@@ -44,11 +45,13 @@ public class CursosIngSistemas extends JFrame {
 
         panelLista.add(desplazamiento);
 
+        /*mostrar los grupos de la materia seleccionada*/
         listaDeCursos.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                int index = listaDeCursos.getSelectedIndex();
-               GruposIngSistemas g = new GruposIngSistemas(courses, seleccionDeGrupos(courses, index));
+               ListaDeGrupos g = new ListaDeGrupos(courses, nombreCursoSeleccionado(courses, index),
+                       seleccionDeGrupos(courses, index), nombreModulo, descripcionModulo);
                g.setVisible(true);
                close();
             }
@@ -60,7 +63,7 @@ public class CursosIngSistemas extends JFrame {
         JButton btnNewButton_volver = new JButton("volver");
         btnNewButton_volver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Modulo_IngSistemas m = new Modulo_IngSistemas(courses);
+                Modulo m = new Modulo(nombreModulo, descripcionModulo, courses);
                 m.setVisible(true);
                 close();
             }
@@ -76,7 +79,7 @@ public class CursosIngSistemas extends JFrame {
     /*dado un curso de la lista seleccionado, se muestran sus grupos*/
     public String[] seleccionDeGrupos(DoubleList<Course> courses, int index){
 
-        String[] grupos = new String[30];
+        String[] grupos = new String[100];
         Group grupo;
         String grupoInfo  = "";
         Node aux = courses.getHead();
@@ -101,6 +104,16 @@ public class CursosIngSistemas extends JFrame {
 
         }
         return grupos;
+    }
+
+    public String nombreCursoSeleccionado(DoubleList<Course> courses, int index){
+        Node aux = courses.getHead();
+        for(int i=0; i < index; i++){
+            aux = aux.getNext();
+        }
+        // este es el curso seleccionado de la lista
+        Course  curso = (Course) aux.getData();
+        return  curso.getCourseName();
     }
 
 }

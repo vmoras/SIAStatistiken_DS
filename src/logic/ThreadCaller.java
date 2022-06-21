@@ -4,7 +4,7 @@ public class ThreadCaller {
     public static void initThreads(){
 
         // Degrees to be called
-        /*
+
         String[] degrees = {"2541 INGENIERÍA AGRÍCOLA",
                 "2542 INGENIERÍA CIVIL",
                 "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
@@ -13,16 +13,16 @@ public class ThreadCaller {
                 "2547 INGENIERÍA MECÁNICA",
                 "2549 INGENIERÍA QUÍMICA",
                 "2548 INGENIERÍA MECATRÓNICA"};
-        */
 
-        String[] degrees = {"2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
-                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
-                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
-                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
-                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
-                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
-                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
-                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN"};
+
+//        String[] degrees = {"2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
+//                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
+//                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
+//                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
+//                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
+//                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
+//                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN",
+//                "2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN"};
 
          /*
         String[] degrees = {"2879 INGENIERÍA DE SISTEMAS Y COMPUTACIÓN"};
